@@ -46,7 +46,7 @@ public class Methods1 {
 		Thread.sleep(5000);
 		departureCity.sendKeys(Keys.ARROW_RIGHT);
 		Thread.sleep(5000);
-		departureCity.sendKeys(Keys.ENTER);
+		departureCity.click();
 		
 		WebElement arrivalCity = driver.findElement(By.id("ctl00_mainContent_ddl_destinationStation1_CTXT"));
 		arrivalCity.clear();
@@ -56,9 +56,31 @@ public class Methods1 {
 			arrivalCity.sendKeys(Keys.ARROW_RIGHT);
 		}
 		Thread.sleep(5000);
-		arrivalCity.sendKeys(Keys.ENTER);
+		arrivalCity.click();
 		}
-			
+	
+	public void departDate() {
+		driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight.ui-state-active")).click();
 	}
 	
-
+	public void roundTripSelection() {
+	driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+	}
+	
+	public void returnDate() throws Exception {
+		driver.findElement(By.id("ctl00_mainContent_view_date2")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[text() = 'Prev']")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight")).click();
+	}
+	
+	public void checkboxSelection() {
+		driver.findElement(By.cssSelector("input[id*= 'StudentDiscount']")).click();
+	}
+	
+	public void searchBtnClick() {
+		driver.findElement(By.cssSelector("input[name*= 'FindFlights']")).click();
+		
+	}
+}
